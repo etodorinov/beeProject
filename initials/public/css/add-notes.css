@@ -1,0 +1,73 @@
+.add-container {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 360px;
+  height: auto;
+  margin: auto;
+  background-color: rgba(255, 200, 0, 0.18);
+  border: 3px solid rgb(255, 200, 0);
+  border-radius: 20px;
+}
+
+.add-container h1 {
+  text-align: center;
+  color: #f5ebdd;
+}
+
+.add-container h4 {
+  margin-top: 10px;
+  text-align: center;
+  color: #ff960b;
+}
+
+.add-container form {
+  width: 300px;
+  margin-left: 15px;
+}
+
+.add-container form label {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.add-container form input {
+  width: 320px;
+  height: 30px;
+  padding-left: 7px;
+  border: none;
+  border: 1px solid gray;
+  border-radius: 8px;
+  outline: none;
+  background-color: whitesmoke;
+}
+
+.add-container form textarea {
+  width: 320px;
+  height: 80px;
+  padding-left: 7px;
+  border: none;
+  border: 1px solid gray;
+  border-radius: 8px;
+  outline: none;
+  background-color: whitesmoke;
+  resize: none;
+}
+
+.add-container input[type="submit"] {
+  width: 320px;
+  height: 35px;
+  margin-top: 20px;
+  border: none;
+  background-color: brown;
+  color: white;
+  font-size: 15px;
+  margin-bottom: 30px;
+}

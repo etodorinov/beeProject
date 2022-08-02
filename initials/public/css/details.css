@@ -1,0 +1,91 @@
+.details-info {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 3px solid rgb(255, 200, 0);
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 20px;
+  background-color: rgba(255, 200, 0, 0.18);
+  width: 360px;
+  height: auto;
+  margin: auto;
+}
+
+.details-info h1 {
+  font-size: 28px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.details-info .hive-image > img {
+  border-radius: 50%;
+  margin: 20px auto;
+  display: block;
+  width: 100px;
+  border: 5px solid #fff;
+}
+
+.details-info .hive-text {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.details-info #location {
+  text-align: center;
+}
+
+.details-info #years-owned {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.details-info #owner {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.details-info #description {
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.btn-add,
+.btn-view,
+.btn-delete {
+  border: 5em;
+  cursor: pointer;
+  outline: none;
+  font-size: 13px;
+  -webkit-transform: translate(0);
+  transform: translate(0);
+  background-color: brown;
+  padding: 0.7em 2em;
+  border-radius: 65px;
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
+  -webkit-transition: box-shadow 0.25s;
+  transition: box-shadow 0.25s;
+  color: white;
+  text-decoration: none;
+}
+
+.author {
+  display: flex;
+
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.btn-view,
+.btn-delete {
+  margin-left: 6px;
+}
+
+.btn-add:hover {
+  box-shadow: 0 12px 24px rgba(128, 128, 128, 0.1);
+}

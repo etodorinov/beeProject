@@ -1,0 +1,44 @@
+.not-found-page {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: 3px solid rgb(255, 200, 0);
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.54);
+  /* background-color: rgba(255, 200, 0, 0.18); */
+}
+
+.not-found-page-container p a {
+  color: rgb(255, 200, 0);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.not-found-page-container p a:hover {
+  text-decoration: underline;
+}
+
+.not-found-page-container h1 {
+  text-align: center;
+  font-size: 100px;
+  /* margin-left: 200px; */
+  margin-top: 10%;
+}
+
+.not-found-page-container h2 {
+  text-align: center;
+  font-size: 30px;
+  /* margin-left: 170px; */
+  margin-top: 1%;
+}
+
+.not-found-page-container > p {
+  text-align: center;
+  width: 96%;
+  margin-top: 2%;
+}

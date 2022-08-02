@@ -1,0 +1,97 @@
+.create-container {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 360px;
+  height: auto;
+  margin: auto;
+  border: 3px solid rgb(255, 200, 0);
+  border-radius: 20px;
+  background-color: rgba(255, 200, 0, 0.180);
+
+}
+
+.create-container h1 {
+  text-align: center;
+  color: #f5ebdd;
+}
+
+.create-container h4 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.create-container form {
+  width: 300px;
+  margin-left: 15px;
+}
+
+.create-container form label {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.create-container form input {
+  width: 320px;
+  height: 30px;
+  padding-left: 7px;
+  border: none;
+  border: 1px solid gray;
+  border-radius: 8px;
+  outline: none;
+  background-color: whitesmoke;
+}
+
+.create-container input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.create-container input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.create-container form textarea {
+  width: 320px;
+  height: 80px;
+  padding-left: 7px;
+  border: none;
+  border: 1px solid gray;
+  border-radius: 8px;
+  outline: none;
+  background-color: whitesmoke;
+  resize: none;
+}
+
+.create-container select {
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  flex: 1;
+  padding: 0 1em;
+  cursor: pointer;
+  height: 20px;
+  font-weight: bold;
+  border-radius: 20px;
+  width: 320px;
+  color: brown;
+  background-color: whitesmoke;
+}
+
+.create-container input[type="submit"] {
+  width: 320px;
+  height: 35px;
+  margin-top: 20px;
+  border: none;
+  background-color: brown;
+  color: white;
+  font-size: 15px;
+  margin-bottom: 30px;
+}

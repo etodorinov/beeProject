@@ -1,0 +1,124 @@
+.hive-catalogue h1 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.hive-catalogue h1 span {
+  color: rgb(255, 200, 0);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.hive-list {
+  border-top: 4px solid rgb(255, 200, 0);
+  border-bottom: 4px solid rgb(255, 200, 0);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+  width: auto;
+  height: 400px;
+  margin-top: 100px;
+  overflow-y: scroll;
+}
+
+.hive-list::-webkit-scrollbar {
+  width: 20px;
+}
+
+.hive-list::-webkit-scrollbar-track {
+  background-color: rgba(255, 200, 0, 0.18);
+  border-radius: 100px;
+}
+
+.hive-list::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+  box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+  border-radius: 100px;
+}
+
+.hive-catalogue .hive {
+  display: inline-block;
+  width: 400px;
+  height: 200px;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  border: 3px solid rgb(255, 200, 0);
+  border-radius: 30px;
+  /* background-color: rgba(255, 200, 0, 0.18); */
+  background-color: rgba(0, 0, 0, 0.54);
+}
+
+.hive-catalogue .hive-img img {
+  float: left;
+  border: 2px solid rgba(169, 152, 198, 0.781);
+  border-radius: 50%;
+  width: 140px;
+  height: 120px;
+  margin: 20px;
+}
+
+.hive-catalogue .hive-info {
+  margin-bottom: 20px;
+}
+
+.hive-catalogue .hive-info h1 {
+  font-size: 24px;
+  margin-top: 10px;
+  color: white;
+}
+
+.hive-catalogue .hive-info p {
+  color: white;
+  margin-top: 5px;
+}
+
+.hive-catalogue .hive-info span {
+  color: white;
+  font-weight: bolder;
+}
+
+.hive-catalogue .hive .btn-details {
+  border: 5em;
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
+  -webkit-transform: translate(0);
+  transform: translate(0);
+  /* background-image: linear-gradient(45deg, #4568dc, #b06ab3); */
+  background-color: brown;
+  padding: 0.7em 2em;
+  border-radius: 65px;
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
+  -webkit-transition: box-shadow 0.25s;
+  transition: box-shadow 0.25s;
+  color: white;
+  width: 100px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.hive-catalogue .hive .btn-details:hover {
+  box-shadow: 0 12px 24px rgba(128, 128, 128, 0.1);
+}
+
+.no-hives {
+  border-top: 4px solid rgb(255, 200, 0);
+  border-bottom: 4px solid rgb(255, 200, 0);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+  /* background-color: rgba(255, 200, 0, 0.18); */
+  background-color: rgba(0, 0, 0, 0.54);
+  width: auto;
+  height: 100px;
+  margin: auto;
+}
+
+.no-hives p {
+  font-size: 30px;
+  text-align: center;
+  padding-top: 30px;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
