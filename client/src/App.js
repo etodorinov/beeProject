@@ -12,27 +12,30 @@ import { AddNotes } from "./components/hives/AddNotes";
 import { Search } from "./components/hives/Search";
 import { Login } from "./components/user/Login";
 import { Register } from "./components/user/Register";
+import { AuthProvider } from "./components/contexts/UserContext";
 
 function App() {
   return (
-    <div>
-      <Navigation />
+    <AuthProvider>
+      <div>
+        <Navigation />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/hives/catalogue" element={<Catalogue />} />
-        <Route path="/hives/search" element={<Search />} />
-        <Route path="/hives/create" element={<Create />} />
-        <Route path="/hives/details" element={<Details />} />
-        <Route path="/hives/notes" element={<Notes />} />
-        <Route path="/hives/add-note" element={<AddNotes />} />
-        <Route path="/users/login" element={<Login />} />
-        <Route path="/users/register" element={<Register />} />
-        <Route path="*" element={<NoSuchLink />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/hives/catalogue" element={<Catalogue />} />
+          <Route path="/hives/search" element={<Search />} />
+          <Route path="/hives/create" element={<Create />} />
+          <Route path="/hives/details" element={<Details />} />
+          <Route path="/hives/notes" element={<Notes />} />
+          <Route path="/hives/add-note" element={<AddNotes />} />
+          <Route path="/users/login" element={<Login />} />
+          <Route path="/users/register" element={<Register />} />
+          <Route path="*" element={<NoSuchLink />} />
+        </Routes>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </AuthProvider>
   );
 }
 
