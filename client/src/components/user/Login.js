@@ -1,9 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import { login } from "../../services/usersServices";
+import { AuthContext } from "../contexts/UserContext";
 
 export const Login = () => {
+  const { userLogin } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [errors, setErrors] = useState({});
@@ -67,11 +69,16 @@ export const Login = () => {
       .then((response) => response.json())
       .then((result) => {
         if (result._id) {
-          console.log(result); //TO DO: Store info for registered user so the app know there is one
+          userLogin(result);
           navigate("/");
+          console.log(result); //TO DO: Store info for registered user so the app know there is one
         } else {
           navigate("*");
         }
+      })
+      .catch((error) => {
+        console.log(error);
+        navigate("*");
       });
   }
 
