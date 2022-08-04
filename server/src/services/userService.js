@@ -56,7 +56,7 @@ module.exports = {
 };
 
 async function tokenCreator(userData) {
-  const payload = { _id: userData._id, email: userData.email };
+  const payload = { _id: userData._id, email: userData.email, username: userData.username};
 
   const token = await new Promise((resolve, reject) =>
     jwt.sign(payload, JWT_SECRET, { expiresIn: "1d" }, (err, result) => {
@@ -68,7 +68,7 @@ async function tokenCreator(userData) {
     })
   );
 
-  return { _id: userData._id, email: userData.email, accessToken: token };
+  return { _id: userData._id, username: userData.username, email: userData.email, accessToken: token };
 }
 
 async function validateToken(token) {
