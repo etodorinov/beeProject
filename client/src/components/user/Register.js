@@ -1,9 +1,11 @@
 import { useNavigate, Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import { register } from "../../services/usersServices";
+import { AuthContext } from "../contexts/UserContext";
 
 export const Register = () => {
+  const { userLogin } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [errors, setErrors] = useState({});
