@@ -96,12 +96,16 @@ export const Register = () => {
     register(username, email, password)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result); //TO DO: Store info for registered user so the app know there is one
         if (result._id) {
+          userLogin(result);
           navigate("/");
         } else {
           navigate("*");
         }
+      })
+      .catch((error) => {
+        console.log(error);
+        navigate("*");
       });
   }
 
