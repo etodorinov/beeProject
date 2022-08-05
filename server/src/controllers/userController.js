@@ -11,8 +11,6 @@ router.post("/register", async (req, res) => {
     console.log(error);
     res.status(400).json({ message: error.message });
   }
-
-
 });
 
 router.post("/login", async (req, res) => {
@@ -26,7 +24,6 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/logout", authorization, (req, res) => {
-  console.log(req.headers["x-authorization"], "27 from userController");
   res.status(204).end();
 });
 
