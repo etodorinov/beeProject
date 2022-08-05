@@ -14,7 +14,6 @@ export const Catalogue = () => {
   }, []);
 
   hives = hives.sort((a, b) => {
-    console.log(a._ownerId.username, '17');
     return a._ownerId.username.localeCompare(b._ownerId.username);
   });
   const available = hives.length !== 0 ? true : false;
