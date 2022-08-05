@@ -12,7 +12,8 @@
   margin: auto;
   border: 3px solid rgb(255, 200, 0);
   border-radius: 20px;
-  background-color: rgba(255, 200, 0, 0.18);
+  background-color: rgba(0, 0, 0, 0.54);
+  /* background-color: rgba(255, 200, 0, 0.18); */
 }
 
 .register-box h1 {
@@ -47,12 +48,12 @@
   outline: none;
 }
 
-.register-box input[type="submit"] {
+.register-box .not-active {
   width: 320px;
   height: 35px;
   margin-top: 30px;
   border: none;
-  background-color: brown;
+  background-color: grey;
   color: white;
   font-size: 15px;
 }
@@ -65,4 +66,20 @@
 
 .register-box p > a {
   color: rgb(255, 200, 0);
+}
+
+.register-box .active {
+  width: 320px;
+  height: 35px;
+  margin-top: 30px;
+  border: none;
+  background-color: brown;
+  color: white;
+  font-size: 15px;
+}
+
+.register-box .error {
+  color: red;
+  font-weight: bold;
+  font-size: 13px;
 }

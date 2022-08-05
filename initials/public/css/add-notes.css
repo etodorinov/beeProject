@@ -10,7 +10,8 @@
   width: 360px;
   height: auto;
   margin: auto;
-  background-color: rgba(255, 200, 0, 0.18);
+  /* background-color: rgba(255, 200, 0, 0.18); */
+  background-color: rgba(0, 0, 0, 0.54);
   border: 3px solid rgb(255, 200, 0);
   border-radius: 20px;
 }
@@ -18,6 +19,10 @@
 .add-container h1 {
   text-align: center;
   color: #f5ebdd;
+}
+
+.add-container h1 a {
+  color: rgb(255, 200, 0);;
 }
 
 .add-container h4 {

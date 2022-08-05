@@ -12,8 +12,8 @@
   margin: auto;
   border: 3px solid rgb(255, 200, 0);
   border-radius: 20px;
-  background-color: rgba(255, 200, 0, 0.180);
-
+  /* background-color: rgba(255, 200, 0, 0.180); */
+  background-color: rgba(0, 0, 0, 0.54);
 }
 
 .create-container h1 {
@@ -85,7 +85,18 @@
   background-color: whitesmoke;
 }
 
-.create-container input[type="submit"] {
+.create-container .not-active {
+  width: 320px;
+  height: 35px;
+  margin-top: 20px;
+  border: none;
+  background-color: grey;
+  color: white;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.create-container .active {
   width: 320px;
   height: 35px;
   margin-top: 20px;
@@ -94,4 +105,10 @@
   color: white;
   font-size: 15px;
   margin-bottom: 30px;
+}
+
+.create-container .error {
+  color: red;
+  font-weight: bold;
+  font-size: 13px;
 }

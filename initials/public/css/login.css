@@ -12,7 +12,8 @@
   margin: auto;
   border: 3px solid rgb(255, 200, 0);
   border-radius: 20px;
-  background-color: rgba(255, 200, 0, 0.18);
+  /* background-color: rgba(255, 200, 0, 0.18); */
+  background-color: rgba(0, 0, 0, 0.54);
 }
 
 .login-box h1 {
@@ -20,24 +21,24 @@
   /* padding-top: 15px; */
 }
 
-h4 {
+.login-box h4 {
   margin-top: 10px;
   text-align: center;
 }
 
-form {
+.login-box form {
   width: 300px;
   margin-left: 15px;
 }
 
-form label {
+.login-box form label {
   display: flex;
   margin-top: 20px;
   margin-bottom: 5px;
   font-size: 18px;
 }
 
-form input {
+.login-box form input {
   width: 320px;
   height: 30px;
   padding-left: 7px;
@@ -47,12 +48,12 @@ form input {
   outline: none;
 }
 
-input[type="submit"] {
+.login-box .not-active {
   width: 320px;
   height: 35px;
-  margin-top: 20px;
+  margin-top: 30px;
   border: none;
-  background-color: brown;
+  background-color: grey;
   color: white;
   font-size: 15px;
 }
@@ -65,4 +66,20 @@ input[type="submit"] {
 
 .login-box p > a {
   color: rgb(255, 200, 0);
+}
+
+.login-box .active {
+  width: 320px;
+  height: 35px;
+  margin-top: 30px;
+  border: none;
+  background-color: brown;
+  color: white;
+  font-size: 15px;
+}
+
+.login-box .error {
+  color: red;
+  font-weight: bold;
+  font-size: 13px;
 }
