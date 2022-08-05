@@ -12,6 +12,7 @@ import { AddNotes } from "./components/hives/AddNotes";
 import { Search } from "./components/hives/Search";
 import { Login } from "./components/user/Login";
 import { Register } from "./components/user/Register";
+import { Logout } from "./components/user/Logout";
 import { AuthProvider } from "./components/contexts/UserContext";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/hives/add-note" element={<AddNotes />} />
           <Route path="/users/login" element={<Login />} />
           <Route path="/users/register" element={<Register />} />
+          <Route path="/users/logout" element={<Logout />} />
           <Route path="*" element={<NoSuchLink />} />
         </Routes>
 
