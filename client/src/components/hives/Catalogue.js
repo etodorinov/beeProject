@@ -1,37 +1,38 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+import { getAll } from "../../services/itemsServices";
+
+import { Hive } from "./Hive";
 
 export const Catalogue = () => {
+  const [hives, setHives] = useState([]);
+  useEffect(() => {
+    getAll()
+      .then((response) => response.json())
+      .then((result) => setHives(result));
+  }, []);
+
+  const available = hives.length !== 0 ? true : false;
+
   return (
-    <main>
-      <section className="hive-catalogue">
-        <h1>
-          <span>Hives</span> Trade
-        </h1>
-        <div className="hive-list">
-          <div className="hive">
-            <div className="hive-img">
-              <img src="/pictures/hive2.jpg" alt="hive" />
-            </div>
-            <div className="hive-info">
-              <h1>1/Blue</h1>
-              <p>
-                <span>Location: </span>Svoge
-              </p>
-              <p>
-                <span>Owner: </span>Bee King
-              </p>
-            </div>
-
-            <Link to="/hives/details" className="btn-details">
-              Details
-            </Link>
+    (available && (
+      <main>
+        <section className="hive-catalogue">
+          <h1>
+            <span>Hives</span> Trade
+          </h1>
+          <div className="hive-list">
+            {hives.map((x) => (
+              <Hive key={x._id} hive={x} />
+            ))}
           </div>
-        </div>
-
-        {/* <div className="no-hives">
-            <p>There are no hives found!</p>
-        </div> */}
-      </section>
-    </main>
+        </section>
+      </main>
+    )) || (
+      <div className="no-hives">
+        <p>There are no hives found!</p>
+      </div>
+    )
   );
 };
