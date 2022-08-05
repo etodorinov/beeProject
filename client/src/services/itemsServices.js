@@ -13,3 +13,13 @@ export function create(number, location, description, condition, user) {
     console.log(error);
   }
 }
+
+export function getAll () {
+  try {
+    let hives = fetcher.get(baseUrl);
+
+    return hives;
+  } catch (error) {
+    console.log(error);
+  }
+}
