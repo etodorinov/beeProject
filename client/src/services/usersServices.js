@@ -26,4 +26,12 @@ export function login(email, password) {
   }
 }
 
-// export function logout() {}
+export async function logout() {
+  try {
+    const response = fetch(baseUrl + "/logout");
+
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
