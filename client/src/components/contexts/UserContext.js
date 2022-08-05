@@ -7,7 +7,6 @@ export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useLocalStorage("token", {});
 
   const userLogin = (authData) => {
-      console.log(authData, 'authData from userContext, row 10');
     setAuth(authData);
   };
 
