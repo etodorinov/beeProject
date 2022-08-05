@@ -30,6 +30,6 @@ const hiveSchema = new Schema({
   _ownerId: { type: ObjectId, ref: "User" },
 });
 
-const Hive = model("Item", hiveSchema);
+const Hive = model("Hive", hiveSchema);
 
 module.exports = Hive;
