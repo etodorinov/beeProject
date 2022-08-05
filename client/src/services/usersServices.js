@@ -26,9 +26,13 @@ export function login(email, password) {
   }
 }
 
-export async function logout() {
+export async function logout(accessToken) {
   try {
-    const response = fetch(baseUrl + "/logout");
+    const response = await fetch(baseUrl + "/logout", {
+      headers: {
+        "X-Authorization": accessToken,
+      },
+    });
 
     return response;
   } catch (error) {
