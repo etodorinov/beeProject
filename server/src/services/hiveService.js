@@ -7,10 +7,10 @@ async function getAll(query) {
   if (query.where) {
     const userId = Object.entries(query)[0][1].split("=")[1].split('"')[1];
 
-    return (hives = await Hive.find({ _ownerId: userId }));
+    return (hives = await Hive.find({ _ownerId: userId }).populate("_ownerId"));
   }
 
-  return (hives = await Hive.find());
+  return (hives = await Hive.find().populate("_ownerId"));
 }
 
 async function getOne(id) {
