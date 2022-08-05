@@ -26,7 +26,7 @@ function App() {
           <Route path="/hives/catalogue" element={<Catalogue />} />
           <Route path="/hives/search" element={<Search />} />
           <Route path="/hives/create" element={<Create />} />
-          <Route path="/hives/details" element={<Details />} />
+          <Route path="/hives/details/:id" element={<Details />} />
           <Route path="/hives/notes" element={<Notes />} />
           <Route path="/hives/add-note" element={<AddNotes />} />
           <Route path="/users/login" element={<Login />} />
