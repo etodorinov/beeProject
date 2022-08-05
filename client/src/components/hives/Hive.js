@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export const Hive = (props) => {
+  let hiveId = props.hive._id
   return (
     <div className="hive">
       <div className="hive-img">
@@ -13,11 +14,12 @@ export const Hive = (props) => {
           {props.hive.location}
         </p>
         <p>
-          <span>Owner: </span>{props.hive._ownerId.username}
+          <span>Owner: </span>
+          {props.hive._ownerId.username}
         </p>
       </div>
 
-      <Link to="/hives/details" className="btn-details">
+      <Link to={`/hives/details/${hiveId}`} className="btn-details">
         Details
       </Link>
     </div>
