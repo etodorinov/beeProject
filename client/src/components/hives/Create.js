@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { create } from "../../services/itemsServices";
+import { AuthContext } from "../contexts/UserContext";
 
 export const Create = () => {
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   const [values, setValues] = useState({
     number: "",
@@ -65,16 +67,33 @@ export const Create = () => {
       return;
     }
 
-    let userId = "62e654d3a7b033ccf6e8dc08";
-    create(number, location, description, condition, userId)
+    let yearsOwned;
+
+    switch (condition) {
+      case "one":
+        yearsOwned = "One year";
+        break;
+      case "two":
+        yearsOwned = "Two years";
+        break;
+      case "more":
+        yearsOwned = "More than two years";
+        break;
+      default:
+    }
+
+    create(number, location, description, yearsOwned, user._id)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result, '72 at Create');
         if (result._id) {
-          navigate("/hives/catalog");
+          navigate("/hives/catalogue");
         } else {
           navigate("*");
         }
+      })
+      .catch((error) => {
+        console.log(error);
+        navigate("*");
       });
   }
 
