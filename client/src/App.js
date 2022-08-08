@@ -14,6 +14,7 @@ import { Login } from "./components/user/Login";
 import { Register } from "./components/user/Register";
 import { Logout } from "./components/user/Logout";
 import { AuthProvider } from "./components/contexts/UserContext";
+import { DeleteHive } from "./components/hives/DeleteHive";
 
 function App() {
   return (
@@ -24,13 +25,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/hives/catalogue" element={<Catalogue />} />
+          <Route path="/users/login" element={<Login />} />
+          <Route path="/users/register" element={<Register />} />
           <Route path="/hives/search" element={<Search />} />
           <Route path="/hives/create" element={<Create />} />
           <Route path="/hives/details/:id" element={<Details />} />
-          <Route path="/hives/notes" element={<Notes />} />
-          <Route path="/hives/add-note" element={<AddNotes />} />
-          <Route path="/users/login" element={<Login />} />
-          <Route path="/users/register" element={<Register />} />
+          <Route path="/hives/notes/:id" element={<Notes />} />
+          <Route path="/hives/add-note/:id" element={<AddNotes />} />
+          <Route path="/hives/remove/:id" element={<DeleteHive />} />
           <Route path="/users/logout" element={<Logout />} />
           <Route path="*" element={<NoSuchLink />} />
         </Routes>
