@@ -15,6 +15,7 @@ import { Register } from "./components/user/Register";
 import { Logout } from "./components/user/Logout";
 import { AuthProvider } from "./components/contexts/UserContext";
 import { DeleteHive } from "./components/hives/DeleteHive";
+import { Edit } from "./components/hives/Edit";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/hives/search" element={<Search />} />
           <Route path="/hives/create" element={<Create />} />
           <Route path="/hives/details/:id" element={<Details />} />
+          <Route path="/hives/edit/:id" element={<Edit />} />
           <Route path="/hives/notes/:id" element={<Notes />} />
           <Route path="/hives/add-note/:id" element={<AddNotes />} />
           <Route path="/hives/remove/:id" element={<DeleteHive />} />
