@@ -36,9 +36,20 @@ export function getOne(hiveId) {
 
 export function removeHive(hiveId) {
   try {
-    let removed = fetcher.remove(baseUrl + `/${hiveId}`)
+    let removed = fetcher.remove(baseUrl + `/${hiveId}`);
 
     return removed;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export function edit(hiveId, data) {
+  try {
+    console.log(data, 'from services');
+    let edited = fetcher.put(baseUrl + `/${hiveId}`, data);
+
+    return edited;
   } catch (error) {
     console.log(error);
   }
