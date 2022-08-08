@@ -14,11 +14,21 @@ export function create(number, location, description, condition, user) {
   }
 }
 
-export function getAll () {
+export function getAll() {
   try {
     let hives = fetcher.get(baseUrl);
 
     return hives;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export function getOne(hiveId) {
+  try {
+    let hive = fetcher.get(baseUrl + `/${hiveId}`);
+
+    return hive;
   } catch (error) {
     console.log(error);
   }
