@@ -33,3 +33,13 @@ export function getOne(hiveId) {
     console.log(error);
   }
 }
+
+export function removeHive(hiveId) {
+  try {
+    let removed = fetcher.remove(baseUrl + `/${hiveId}`)
+
+    return removed;
+  } catch (error) {
+    console.log(error);
+  }
+}
