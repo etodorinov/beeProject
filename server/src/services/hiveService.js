@@ -14,7 +14,7 @@ async function getAll(query) {
 }
 
 async function getOne(id) {
-  return (hive = await Hive.findById(id));
+  return (hive = await Hive.findById(id).populate("_ownerId"));
 }
 
 async function create(data, user) {
