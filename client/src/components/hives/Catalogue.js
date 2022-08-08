@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import { getAll } from "../../services/itemsServices";
@@ -14,7 +13,7 @@ export const Catalogue = () => {
   }, []);
 
   hives = hives.sort((a, b) => {
-    return a._ownerId.username.localeCompare(b._ownerId.username);
+    return a._ownerId?.username.localeCompare(b._ownerId?.username);
   });
   const available = hives.length !== 0 ? true : false;
 
