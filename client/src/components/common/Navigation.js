@@ -47,6 +47,7 @@ export const Navigation = () => {
                   }
                 >
                   Logout
+                  <span className="username"> {user.username}</span>
                 </NavLink>
               </li>
             </>
