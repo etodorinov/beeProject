@@ -1,33 +1,20 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useState, useContext } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
-import { getOne, edit } from "../../services/itemsServices";
+import { HiveContext } from "../contexts/HiveContext";
+import { edit } from "../../services/itemsServices";
 
 export const Edit = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const hiveId = location.pathname.split("/").pop();
+  const { currentHive } = useContext(HiveContext);
 
   const [values, setValues] = useState({
-    number: "",
-    location: "",
-    description: "",
-    condition: "",
+    number: currentHive?.number,
+    location: currentHive?.location,
+    description: currentHive?.description,
+    condition: currentHive?.condition,
   });
   const [errors, setErrors] = useState({});
-
-  useEffect(() => {
-    getOne(hiveId)
-      .then((response) => response.json())
-      .then((result) => {
-        setValues({
-          number: result.number,
-          location: result.location,
-          description: result.description,
-          condition: result.condition,
-        });
-      });
-  }, []);
 
   function changeHandler(e) {
     setValues((state) => ({ ...state, [e.target.name]: e.target.value }));
@@ -67,7 +54,7 @@ export const Edit = () => {
   function onCancel(e) {
     e.preventDefault();
 
-    navigate(`/hives/details/${hiveId}`);
+    navigate(`/hives/details/${currentHive?._id}`);
   }
 
   function onSubmit(e) {
@@ -114,11 +101,11 @@ export const Edit = () => {
 
     const editInfo = { number, location, description, condition: yearsOwned };
 
-    edit(hiveId, editInfo)
+    edit(currentHive?._id, editInfo)
       .then((response) => response.json())
       .then((result) => {
         if (result._id) {
-          navigate(`/hives/details/${hiveId}`);
+          navigate(`/hives/details/${currentHive?._id}`);
         } else {
           navigate("*");
         }
@@ -135,11 +122,11 @@ export const Edit = () => {
         <div className="create-container-info">
           <h1>Edit</h1>
           <h1 id="name">
-            <Link to={`/hives/details/${hiveId}`}>
+            <Link to={`/hives/details/${currentHive?._id}`}>
               <span> {values.number}</span>
             </Link>
           </h1>
-          <h4>Post your hive to do records to it</h4>
+          <h4>Post your hive for edits to take effect</h4>
           <form method="POST" onSubmit={onSubmit}>
             <label>Number/Color:</label>
             <input
