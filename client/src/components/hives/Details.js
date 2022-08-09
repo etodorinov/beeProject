@@ -2,11 +2,14 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 
 import { AuthContext } from "../contexts/UserContext";
+import { HiveContext } from "../contexts/HiveContext";
+
 import { getOne } from "../../services/itemsServices";
 
 export const Details = () => {
   const [hive, setHive] = useState([]);
   const { user } = useContext(AuthContext);
+  const { currentHiveFromDetails } = useContext(HiveContext);
 
   const location = useLocation();
   const hiveId = location.pathname.split("/").pop();
@@ -14,7 +17,10 @@ export const Details = () => {
   useEffect(() => {
     getOne(hiveId)
       .then((response) => response.json())
-      .then((result) => setHive(result));
+      .then((result) => {
+        setHive(result);
+        currentHiveFromDetails(result);
+      });
   }, []);
 
   return (
@@ -43,7 +49,7 @@ export const Details = () => {
               {user._id === hive._ownerId?._id ? (
                 <>
                   {" "}
-                  <Link to={`/hives/add-note/${hive._id}`} className="btn-add">
+                  <Link to={`/hives/notes/${hive._id}`} className="btn-add">
                     Add notes
                   </Link>
                   <Link to={`/hives/edit/${hive._id}`} className="btn-add">
