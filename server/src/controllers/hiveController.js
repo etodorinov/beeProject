@@ -2,12 +2,12 @@ const router = require("express").Router();
 
 const { authorization } = require("../middlewares/authMiddleware");
 
-const dataService = require("../services/hiveService");
+const hiveService = require("../services/hiveService");
 const { errorMapper } = require("../utils/errorMapper");
 
 router.get("/", async (req, res) => {
   try {
-    const hive = await dataService.getAll(req.query);
+    const hive = await hiveService.getAll(req.query);
     res.status(200).json(hive);
   } catch (error) {
     console.log(error);
@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const hive = await dataService.getOne(req.params.id);
+    const hive = await hiveService.getOne(req.params.id);
     res.status(200).json(hive);
   } catch (error) {
     console.log(error);
@@ -34,7 +34,7 @@ router.post("/", authorization, async (req, res) => {
       throw new Error(inputErrors);
     }
 
-    const created = await dataService.create(req.body, res.user);
+    const created = await hiveService.create(req.body, res.user);
     res.status(200).json(created);
   } catch (error) {
     let message = errorMapper(error);
@@ -51,7 +51,7 @@ router.put("/:id", async (req, res) => {
       throw new Error(inputErrors);
     }
 
-    const edited = await dataService.edit(req.params.id, req.body);
+    const edited = await hiveService.edit(req.params.id, req.body);
     res.status(200).json(edited);
   } catch (error) {
     let message = errorMapper(error);
@@ -61,7 +61,7 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    const removed = await dataService.remove(req.params.id);
+    const removed = await hiveService.remove(req.params.id);
     res.status(200).json(removed);
   } catch (error) {
     let message = errorMapper(error);
