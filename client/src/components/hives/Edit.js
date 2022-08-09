@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 import { getOne, edit } from "../../services/itemsServices";
 
@@ -98,7 +98,7 @@ export const Edit = () => {
     }
 
     let yearsOwned;
-    
+
     switch (condition) {
       case "one":
         yearsOwned = "One year";
@@ -133,7 +133,12 @@ export const Edit = () => {
     <main>
       <section className="create-container">
         <div className="create-container-info">
-          <h1>Edit {values.number}</h1>
+          <h1>Edit</h1>
+          <h1 id="name">
+            <Link to={`/hives/details/${hiveId}`}>
+              <span> {values.number}</span>
+            </Link>
+          </h1>
           <h4>Post your hive to do records to it</h4>
           <form method="POST" onSubmit={onSubmit}>
             <label>Number/Color:</label>
@@ -196,13 +201,6 @@ export const Edit = () => {
               value="Edit"
               className={activation() ? "active" : "not-active"}
               disabled={activation() ? false : true}
-            ></input>
-            <input
-              type="submit"
-              value="Cancel"
-              className="active"
-              disabled={false}
-              onClick={onCancel}
             ></input>
           </form>
         </div>
