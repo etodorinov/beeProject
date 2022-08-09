@@ -1,32 +1,131 @@
-import { NavLink as Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { useContext, useState } from "react";
+
+import { HiveContext } from "../contexts/HiveContext";
+
+import { createNoteInDatabase } from "../../services/notesServices";
 
 export const AddNotes = () => {
+  const [values, setValues] = useState({
+    date: "",
+    note: "",
+  });
+  const [errors, setErrors] = useState({});
+  const { currentHive } = useContext(HiveContext);
+  const navigate = useNavigate();
+
+  function changeHandler(e) {
+    setValues((state) => ({ ...state, [e.target.name]: e.target.value }));
+  }
+
+  function minLength(e, border) {
+    setErrors((state) => ({
+      ...state,
+      [e.target.name]: values[e.target.name].length < border,
+    }));
+  }
+
+  function dateLength(e, border) {
+    setErrors((state) => ({
+      ...state,
+      [e.target.name]: values[e.target.name].length !== border,
+    }));
+  }
+
+  function activation() {
+    let mayActivate = false;
+
+    if (values.date.length === 10 && values.note.length >= 12) {
+      mayActivate = true;
+    }
+
+    return mayActivate;
+  }
+
+  const createNote = (e) => {
+    e.preventDefault();
+
+    const data = new FormData(e.target);
+    const date = data.get("date");
+    const note = data.get("note");
+
+    if (!date instanceof Date && isNaN(date)) {
+      console.log("Please choose a valid date for the note!");
+      return;
+    }
+
+    if (note.length < 12) {
+      console.log("The note should be at least twelve (12) characters long.");
+      return;
+    }
+
+    createNoteInDatabase(currentHive?._id, date, note)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result._id) {
+          navigate(`/hives/details/${currentHive?._id}`);
+        } else {
+          navigate("*");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        navigate("*");
+      });
+  };
+
   return (
     <main>
       <section className="add-container">
         <div className="add-container-info">
-          <h1>Add notes</h1>
-          <form method="POST">
+          <h1>Add note</h1>
+          <form method="POST" onSubmit={createNote}>
             <h1 id="name">
-              <Link to="/hives/details">
-                <span>1/Blue</span>
+              <Link to={`/hives/details/${currentHive?._id}`}>
+                <span>{currentHive?.number}</span>
               </Link>
             </h1>
-            <h3 id="location">Location: Svoge</h3>
+            <h3 id="location">Location: {currentHive?.location}</h3>
             <p id="years-owned">
-              <span>Years owned: Two years</span>
+              <span>Years owned: {currentHive?.condition}</span>
             </p>
-            <p id="description">Description: Good hive.</p>
-            <p id="owner">Owner: Bee king</p>
+            <p id="description">Description: {currentHive?.description}</p>
+            <p id="owner">Owner: {currentHive?._ownerId.username}</p>
             <label>Date:</label>
-            <input type="date" id="date" name="date" />
+            <input
+              type="date"
+              id="date"
+              name="date"
+              value={values.date}
+              onChange={changeHandler}
+              onBlur={(e) => dateLength(e, 10)}
+            />
+            {errors.date && (
+              <span className="error">
+                Please choose a valid date for the note!
+              </span>
+            )}
             <label>Note:</label>
             <textarea
               name="note"
               id="note"
               placeholder="Write your note here..."
+              value={values.note}
+              onChange={changeHandler}
+              onBlur={(e) => minLength(e, 12)}
             ></textarea>
-            <input type="submit" id="btn" value="Add notes"></input>
+            {errors.note && (
+              <span className="error">
+                The note should be at least twelve (12) characters long.
+              </span>
+            )}
+            <input
+              type="submit"
+              id="btn"
+              value="Add notes"
+              className={activation() ? "active" : "not-active"}
+              disabled={activation() ? false : true}
+            ></input>
           </form>
         </div>
       </section>
