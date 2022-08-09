@@ -32,6 +32,7 @@ const userSchema = new Schema({
     ],
   },
   hivesCreated: [{ type: ObjectId, ref: "Hive" }],
+  notesCreated: [{ type: ObjectId, ref: "Note" }],
 });
 
 const User = model("User", userSchema);
