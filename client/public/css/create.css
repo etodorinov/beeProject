@@ -21,6 +21,10 @@
   color: #f5ebdd;
 }
 
+.create-container h1 a {
+  color: rgb(255, 200, 0);;
+}
+
 .create-container h4 {
   margin-top: 10px;
   text-align: center;
