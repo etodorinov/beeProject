@@ -52,7 +52,7 @@ function App() {
             }
           />
           <Route
-            path="/hives/notes/:id"
+            path="/notes/:id/view"
             element={
               <HiveProvider>
                 <Notes />
@@ -60,7 +60,7 @@ function App() {
             }
           />
           <Route
-            path="/hives/notes/:id"
+            path="/notes/:id/add"
             element={
               <HiveProvider>
                 <AddNotes />
