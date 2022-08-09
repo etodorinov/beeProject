@@ -19,7 +19,7 @@ const hiveSchema = new Schema({
     type: String,
     required: true,
     minLength: [
-      11,
+      12,
       "The description must be at least twelve (12) characters long.",
     ],
   },
@@ -28,6 +28,7 @@ const hiveSchema = new Schema({
     required: true,
   },
   _ownerId: { type: ObjectId, ref: "User" },
+  notes: [{ type: ObjectId, ref: "Note" }],
 });
 
 const Hive = model("Hive", hiveSchema);
