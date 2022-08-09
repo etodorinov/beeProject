@@ -22,7 +22,7 @@
 }
 
 .add-container h1 a {
-  color: rgb(255, 200, 0);;
+  color: rgb(255, 200, 0);
 }
 
 .add-container h4 {
@@ -75,4 +75,10 @@
   color: white;
   font-size: 15px;
   margin-bottom: 30px;
+}
+
+.add-container .error {
+  color: red;
+  font-weight: bold;
+  font-size: 13px;
 }
