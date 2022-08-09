@@ -1,5 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 
+import { AuthProvider } from "./components/contexts/UserContext";
+import { HiveProvider } from "./components/contexts/HiveContext";
+
 import { Navigation } from "./components/common/Navigation";
 import { Footer } from "./components/common/Footer";
 import { Home } from "./components/Home";
@@ -13,7 +16,6 @@ import { Search } from "./components/hives/Search";
 import { Login } from "./components/user/Login";
 import { Register } from "./components/user/Register";
 import { Logout } from "./components/user/Logout";
-import { AuthProvider } from "./components/contexts/UserContext";
 import { DeleteHive } from "./components/hives/DeleteHive";
 import { Edit } from "./components/hives/Edit";
 
@@ -26,17 +28,53 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/hives/catalogue" element={<Catalogue />} />
+          <Route path="/hives/search" element={<Search />} />
+          <Route path="*" element={<NoSuchLink />} />
           <Route path="/users/login" element={<Login />} />
           <Route path="/users/register" element={<Register />} />
-          <Route path="/hives/search" element={<Search />} />
           <Route path="/hives/create" element={<Create />} />
-          <Route path="/hives/details/:id" element={<Details />} />
-          <Route path="/hives/edit/:id" element={<Edit />} />
-          <Route path="/hives/notes/:id" element={<Notes />} />
-          <Route path="/hives/add-note/:id" element={<AddNotes />} />
-          <Route path="/hives/remove/:id" element={<DeleteHive />} />
           <Route path="/users/logout" element={<Logout />} />
-          <Route path="*" element={<NoSuchLink />} />
+
+          <Route
+            path="/hives/details/:id"
+            element={
+              <HiveProvider>
+                <Details />
+              </HiveProvider>
+            }
+          />
+          <Route
+            path="/hives/edit/:id"
+            element={
+              <HiveProvider>
+                <Edit />
+              </HiveProvider>
+            }
+          />
+          <Route
+            path="/hives/notes/:id"
+            element={
+              <HiveProvider>
+                <Notes />
+              </HiveProvider>
+            }
+          />
+          <Route
+            path="/hives/add-note/:id"
+            element={
+              <HiveProvider>
+                <AddNotes />
+              </HiveProvider>
+            }
+          />
+          <Route
+            path="/hives/remove/:id"
+            element={
+              <HiveProvider>
+                <DeleteHive />
+              </HiveProvider>
+            }
+          />
         </Routes>
 
         <Footer />
