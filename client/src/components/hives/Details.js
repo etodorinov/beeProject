@@ -43,13 +43,13 @@ export const Details = () => {
           </div>
           <div className="product-btn">
             <div className="author">
-              <Link to={`/hives/notes/${hive._id}`} className="btn-view">
+              <Link to={`/notes/${hive._id}/view`} className="btn-view">
                 View notes
               </Link>
               {user._id === hive._ownerId?._id ? (
                 <>
                   {" "}
-                  <Link to={`/hives/notes/${hive._id}`} className="btn-add">
+                  <Link to={`/notes/${hive._id}/add`} className="btn-add">
                     Add notes
                   </Link>
                   <Link to={`/hives/edit/${hive._id}`} className="btn-add">
