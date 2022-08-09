@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
 export const Hive = (props) => {
-  let hiveId = props.hive._id
+  let hiveId = props.hive._id;
+
   return (
     <div className="hive">
       <div className="hive-img">
@@ -15,7 +16,7 @@ export const Hive = (props) => {
         </p>
         <p>
           <span>Owner: </span>
-          {props.hive._ownerId.username}
+          {props.hive._ownerId?.username}
         </p>
       </div>
 
