@@ -66,7 +66,18 @@
   resize: none;
 }
 
-.add-container input[type="submit"] {
+.add-container .not-active {
+  width: 320px;
+  height: 35px;
+  margin-top: 20px;
+  border: none;
+  background-color: brown;
+  color: white;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.add-container .active {
   width: 320px;
   height: 35px;
   margin-top: 20px;
