@@ -14,10 +14,20 @@ export function createNoteInDatabase(hiveId, date, note) {
   }
 }
 
+export function getAllNotesForSpecificHive(hiveId) {
+  try {
+    let notes = fetcher.get(baseUrl + `/${hiveId}`);
+
+    return notes;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export function getAllNotes() {
   try {
     let notes = fetcher.get(baseUrl);
-    
+
     return notes;
   } catch (error) {
     console.log(error);
