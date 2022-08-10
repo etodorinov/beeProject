@@ -5,9 +5,23 @@ const { authorization } = require("../middlewares/authMiddleware");
 const noteService = require("../services/noteService");
 const { errorMapper } = require("../utils/errorMapper");
 
+
+router.get("/:id", authorization, async (req, res) => {
+  console.log('here');
+  console.log(req.params.id, 'req.params.id');
+  try {
+    const specificNotes = await noteService.getAllNotesForSpecificHive(req.params.id);
+    console.log(specificNotes);
+    res.status(200).json(specificNotes);
+  } catch (error) {
+    let message = errorMapper(error);
+    res.status(400).json({ message });
+  }
+});
+
 router.get("/", authorization, async (req, res) => {
   try {
-    const notes = await noteService.getAllNotes(req.body);
+    const notes = await noteService.getAllNotes();
     res.status(200).json(notes);
   } catch (error) {
     let message = errorMapper(error);
