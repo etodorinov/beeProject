@@ -38,9 +38,18 @@ export const Notes = () => {
         </section>
       </main>
     )) || (
-      <div className="no-notes">
-        <p>There are no notes found!</p>
-      </div>
+      <main>
+        <section className="note-catalogue">
+          <h1>
+            <Link to={`/hives/details/${currentHive?._id}`}>
+              <span>{currentHive?.number}</span>
+            </Link>
+          </h1>
+          <div className="no-notes">
+            <p>There are no notes found!</p>
+          </div>
+        </section>
+      </main>
     )
   );
 };
