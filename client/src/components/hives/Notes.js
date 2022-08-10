@@ -19,10 +19,10 @@ export const Notes = () => {
       });
   }, []);
 
-  const available = notes?.length !== 0 ? true : false;
+  let thisHiveNotes = notes?.filter((x) => x.hive === currentHive?._id);
 
   return (
-    (available && (
+    (thisHiveNotes?.length !== 0 && (
       <main>
         <section className="note-catalogue">
           <h1>
@@ -30,7 +30,7 @@ export const Notes = () => {
               <span>{currentHive?.number}</span>
             </Link>
           </h1>
-          {notes?.map((x) => (
+          {thisHiveNotes?.map((x) => (
             <SingleNote key={x._id} note={x} />
           ))}
         </section>
