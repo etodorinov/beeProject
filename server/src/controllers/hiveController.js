@@ -42,7 +42,7 @@ router.post("/", authorization, async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", authorization, async (req, res) => {
   let inputErrors = inputErrorChecker(req.body);
 
   try {
@@ -59,7 +59,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authorization, async (req, res) => {
   try {
     const removed = await hiveService.remove(req.params.id);
     res.status(200).json(removed);
