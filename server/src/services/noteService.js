@@ -2,6 +2,11 @@ const Hive = require("../models/HiveModel");
 const Note = require("../models/NoteModel");
 const User = require("../models/UserModel");
 
+async function getAllNotes() {
+  const notes = await Note.find();
+  return notes;
+}
+
 async function createNote(data) {
   const { hiveId, date, note } = { ...data };
 
@@ -24,4 +29,4 @@ async function createNote(data) {
   return createdNote;
 }
 
-module.exports = { createNote };
+module.exports = { getAllNotes, createNote };
