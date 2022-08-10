@@ -5,6 +5,16 @@ const { authorization } = require("../middlewares/authMiddleware");
 const noteService = require("../services/noteService");
 const { errorMapper } = require("../utils/errorMapper");
 
+router.get("/", authorization, async (req, res) => {
+  try {
+    const notes = await noteService.getAllNotes(req.body);
+    res.status(200).json(notes);
+  } catch (error) {
+    let message = errorMapper(error);
+    res.status(400).json({ message });
+  }
+});
+
 router.post("/", authorization, async (req, res) => {
   let inputErrors = inputErrorChecker(req.body);
 
