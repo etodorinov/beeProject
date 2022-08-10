@@ -1,8 +1,9 @@
 const Hive = require("../models/HiveModel");
 const User = require("../models/UserModel");
+const Note = require("../models/NoteModel");
 
 async function getAll(query) {
- let hives;
+  let hives;
 
   if (query.where) {
     const userId = Object.entries(query)[0][1].split("=")[1].split('"')[1];
@@ -38,6 +39,8 @@ async function edit(hiveId, data) {
 
 async function remove(hiveId) {
   const removed = await Hive.findByIdAndRemove(hiveId);
+
+  await Note.deleteMany({ hive: removed._id });
 
   return removed;
 }
