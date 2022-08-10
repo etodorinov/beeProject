@@ -13,3 +13,13 @@ export function createNoteInDatabase(hiveId, date, note) {
     console.log(error);
   }
 }
+
+export function getAllNotes() {
+  try {
+    let notes = fetcher.get(baseUrl);
+    
+    return notes;
+  } catch (error) {
+    console.log(error);
+  }
+}
