@@ -80,14 +80,21 @@
 }
 
 .no-notes {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   border-top: 4px solid rgb(255, 200, 0);
   border-bottom: 4px solid rgb(255, 200, 0);
   border-radius: 5px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.2);
   background-color: rgba(255, 200, 0, 0.18);
-  width: auto;
+  width: 96%;
   height: 100px;
   margin: auto;
+  
 }
 
 .no-notes p {
