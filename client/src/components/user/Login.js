@@ -71,7 +71,6 @@ export const Login = () => {
         if (result._id) {
           userLogin(result);
           navigate("/");
-          console.log(result); //TO DO: Store info for registered user so the app know there is one
         } else {
           navigate("*");
         }
