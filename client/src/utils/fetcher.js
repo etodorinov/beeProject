@@ -1,9 +1,9 @@
-function fetcher(method, url, data, user) {
+function fetcher(method, url, data) {
   let headers = {};
   let request;
 
   const currentUser = localStorage.getItem("token");
-  const availableUser = JSON.parse(currentUser || {});
+  const availableUser = JSON.parse(currentUser || '""');
 
   if (availableUser.accessToken) {
     headers["x-authorization"] = availableUser.accessToken;
