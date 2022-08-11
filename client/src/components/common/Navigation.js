@@ -75,8 +75,6 @@ export const Navigation = () => {
               </li>
             </>
           )}
-        </ul>
-        <ul>
           <li>
             <NavLink
               to="/hives/search"
