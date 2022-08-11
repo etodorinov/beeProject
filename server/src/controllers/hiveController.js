@@ -25,6 +25,23 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.post("/search", async (req, res) => {
+  let inputErrors = inputErrorChecker(req.body);
+
+  try {
+    if (inputErrors.length !== 0) {
+      inputErrors = inputErrors.join("\n");
+      throw new Error(inputErrors);
+    }
+
+    const allByLocation = await hiveService.getAllByLocation(req.body);
+    res.status(200).json(allByLocation);
+  } catch (error) {
+    let message = errorMapper(error);
+    res.status(400).json({ message });
+  }
+});
+
 router.post("/", authorization, async (req, res) => {
   let inputErrors = inputErrorChecker(req.body);
 
@@ -74,17 +91,17 @@ module.exports = router;
 function inputErrorChecker(data) {
   let inputErrors = [];
 
-  if (data.number.length < 1) {
+  if (data.number?.length < 1) {
     inputErrors.push("You must type a name or number for the hive.");
   }
 
-  if (data.location.length < 3) {
+  if (data.location?.length < 3) {
     inputErrors.push(
       "The location must be at least three (3) characters long."
     );
   }
 
-  if (data.description.length < 12) {
+  if (data.description?.length < 12) {
     inputErrors.push(
       "The description must be at least twelve (12) characters long."
     );
