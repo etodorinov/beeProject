@@ -6,6 +6,9 @@ import { getAllByLocation } from "../../services/itemsServices";
 
 export const Search = () => {
   const [hives, setHives] = useState();
+  const [value, setValue] = useState({
+    search: "",
+  });
 
   function searchHandler(e) {
     e.preventDefault();
@@ -17,6 +20,20 @@ export const Search = () => {
     getAllByLocation(search)
       .then((response) => response.json())
       .then((result) => setHives(result));
+  }
+
+  function activation() {
+    let mayActivate = false;
+
+    if (value.search.length >= 3) {
+      mayActivate = true;
+    }
+
+    return mayActivate;
+  }
+
+  function changeHandler(e) {
+    setValue((state) => ({ ...state, search: e.target.value }));
   }
 
   const available = hives?.length !== 0 ? true : false;
@@ -33,8 +50,16 @@ export const Search = () => {
               type="text"
               name="search"
               placeholder="Type location here..."
+              value={value.search}
+              onChange={changeHandler}
             ></input>
-            <button type="submit" className="btn-search">
+            <button
+              type="submit"
+              className={
+                activation() ? "btn-search-active" : "btn-search-inactive"
+              }
+              disabled={activation() ? "" : "disabled"}
+            >
               Search
             </button>
           </form>
