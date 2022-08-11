@@ -7,11 +7,9 @@ const { errorMapper } = require("../utils/errorMapper");
 
 
 router.get("/:id", authorization, async (req, res) => {
-  console.log('here');
-  console.log(req.params.id, 'req.params.id');
   try {
     const specificNotes = await noteService.getAllNotesForSpecificHive(req.params.id);
-    console.log(specificNotes);
+    
     res.status(200).json(specificNotes);
   } catch (error) {
     let message = errorMapper(error);
