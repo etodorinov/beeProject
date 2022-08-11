@@ -5,24 +5,23 @@ export const Search = () => {
         <h1>
           <span>Search</span>
         </h1>
-
-        <form className="search-form">
-          <input
-            type="text"
-            className="search-hive"
-            name="name"
-            placeholder="Search here..."
-          />
-          <button type="submit" className="btn-search">
-            Search
-          </button>
-        </form>
-
+        <div className="test">
+          <from className="search-form">
+            <input
+              type="text"
+              name="search"
+              placeholder="Type location here..."
+            ></input>
+            <button type="submit" className="btn-search">
+              Search
+            </button>
+          </from>
+        </div>
         <div className="search-result">
           <div className="search-list">
             <div className="hive">
               <div className="hive-img">
-                <img src="/pictures/hive2.jpg" alt="hive"/>
+                <img src="/pictures/hive2.jpg" alt="hive" />
               </div>
               <div className="hive-info">
                 <h1>1/Blue</h1>
