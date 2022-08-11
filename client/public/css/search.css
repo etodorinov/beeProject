@@ -24,7 +24,7 @@ select {
   height: 40px;
   border: 3px solid rgb(255, 200, 0);
   border-radius: 20px;
-
+  padding-left: 12px;
 }
 
 .search-form button {
@@ -149,4 +149,13 @@ select {
   padding-top: 30px;
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.search-form input::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.search-form input::-ms-input-placeholder {
+  color: white;
 }
