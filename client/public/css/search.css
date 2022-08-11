@@ -9,26 +9,22 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.search-form {
-  display: inline;
-  width: 500px;
-  height: 40px;
-  background: #444;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
-  margin-left: 5%;
-  margin-top: 100%;
+.test {
+  justify-content: center;
+  display: flex;
+  color: white;
 }
 
 .search-form input,
 select {
+  display: inline-block;
   width: 470px;
   color: #ccc;
   background: transparent;
-  border-radius: 3px 0 0 3px;
   height: 40px;
-  border: 1px solid #fff;
+  border: 3px solid rgb(255, 200, 0);
+  border-radius: 20px;
+
 }
 
 .search-form option {
@@ -37,14 +33,14 @@ select {
 }
 
 .search-form button {
-  position: relative;
-  padding: 0;
   cursor: pointer;
   height: 40px;
   width: 120px;
   color: #fff;
-  border: 1px solid #fff;
+  border: 3px solid rgb(255, 200, 0);
+  border-radius: 20px;
   background: transparent;
+  padding-top: 6px;
 }
 
 .search-list {
