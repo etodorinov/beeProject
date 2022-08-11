@@ -45,10 +45,19 @@ async function remove(hiveId) {
   return removed;
 }
 
+async function getAllByLocation(search) {
+  const town = Object.values(search)[0];
+
+  const allByLocation = await Hive.find({ location: town }).populate('_ownerId');
+
+  return allByLocation;
+}
+
 module.exports = {
   getAll,
   getOne,
   create,
   edit,
   remove,
+  getAllByLocation,
 };
