@@ -24,6 +24,16 @@ export function getAll() {
   }
 }
 
+export function getAllByLocation(search) {
+  try {
+    let hivesByLocation = fetcher.post(baseUrl + `/search`, { search });
+
+    return hivesByLocation;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export function getOne(hiveId) {
   try {
     let hive = fetcher.get(baseUrl + `/${hiveId}`);
@@ -46,7 +56,6 @@ export function removeHive(hiveId) {
 
 export function edit(hiveId, data) {
   try {
-    console.log(data, 'from services');
     let edited = fetcher.put(baseUrl + `/${hiveId}`, data);
 
     return edited;
