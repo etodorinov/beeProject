@@ -60,7 +60,7 @@ export const Search = () => {
               }
               disabled={activation() ? "" : "disabled"}
             >
-              Search
+              {activation() ? "Search active" : `Search not active`}
             </button>
           </form>
         </div>
