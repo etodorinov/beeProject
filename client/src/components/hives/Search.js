@@ -1,4 +1,26 @@
+import { useState } from "react";
+
+import { Hive } from "./Hive";
+
+import { getAllByLocation } from "../../services/itemsServices";
+
 export const Search = () => {
+  const [hives, setHives] = useState();
+
+  function searchHandler(e) {
+    e.preventDefault();
+
+    let data = new FormData(e.target);
+
+    let search = data.get("search");
+
+    getAllByLocation(search)
+      .then((response) => response.json())
+      .then((result) => setHives(result));
+  }
+
+  const available = hives?.length !== 0 ? true : false;
+
   return (
     <main>
       <section className="hive-search">
@@ -6,7 +28,7 @@ export const Search = () => {
           <span>Search</span>
         </h1>
         <div className="test">
-          <from className="search-form">
+          <form className="search-form" method="POST" onSubmit={searchHandler}>
             <input
               type="text"
               name="search"
@@ -15,34 +37,21 @@ export const Search = () => {
             <button type="submit" className="btn-search">
               Search
             </button>
-          </from>
+          </form>
         </div>
-        <div className="search-result">
-          <div className="search-list">
-            <div className="hive">
-              <div className="hive-img">
-                <img src="/pictures/hive2.jpg" alt="hive" />
-              </div>
-              <div className="hive-info">
-                <h1>1/Blue</h1>
-                <p>
-                  <span>Location: </span>Svoge
-                </p>
-                <p>
-                  <span>Owner: </span>Bee King
-                </p>
-              </div>
-
-              <a href="/hives/details/" className="btn-details">
-                Details
-              </a>
+        {(available && (
+          <div className="search-result">
+            <div className="search-list">
+              {hives?.map((x) => (
+                <Hive key={x._id} hive={x} />
+              ))}
             </div>
           </div>
-        </div>
-
-        {/* <div className="no-match">
+        )) || (
+          <div className="no-match">
             <p>No match was found!</p>
-        </div> */}
+          </div>
+        )}
       </section>
     </main>
   );
