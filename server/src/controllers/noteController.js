@@ -5,11 +5,12 @@ const { authorization } = require("../middlewares/authMiddleware");
 const noteService = require("../services/noteService");
 const { errorMapper } = require("../utils/errorMapper");
 
-
 router.get("/:id", authorization, async (req, res) => {
   try {
-    const specificNotes = await noteService.getAllNotesForSpecificHive(req.params.id);
-    
+    const specificNotes = await noteService.getAllNotesForSpecificHive(
+      req.params.id
+    );
+
     res.status(200).json(specificNotes);
   } catch (error) {
     let message = errorMapper(error);
@@ -17,15 +18,35 @@ router.get("/:id", authorization, async (req, res) => {
   }
 });
 
-router.get("/", authorization, async (req, res) => {
+router.get("/note/:id", authorization, async (req, res) => {
   try {
-    const notes = await noteService.getAllNotes();
+    const notes = await noteService.getSpecificNote(req.params.id);
     res.status(200).json(notes);
   } catch (error) {
     let message = errorMapper(error);
     res.status(400).json({ message });
   }
 });
+
+router.put("/note/:id", authorization, async (req, res) => {
+  try {
+    const notes = await noteService.editNote(req.params.id, req.body);
+    res.status(200).json(notes);
+  } catch (error) {
+    let message = errorMapper(error);
+    res.status(400).json({ message });
+  }
+});
+
+// router.get("/", authorization, async (req, res) => {
+//   try {
+//     const notes = await noteService.getAllNotes();
+//     res.status(200).json(notes);
+//   } catch (error) {
+//     let message = errorMapper(error);
+//     res.status(400).json({ message });
+//   }
+// });
 
 router.post("/", authorization, async (req, res) => {
   let inputErrors = inputErrorChecker(req.body);
