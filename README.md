@@ -39,11 +39,14 @@ One may return back to the Details page by pressing the number/name of the hive 
 Add notes page - 
 On this page the owner of the hive may add note for it. In order to add note the user must provide a valid date and text for the note not shorter than twelve (12) characters. After a successful creation of the note the user is forwarded to the Details page.
 If the user decides not to create note one may return back to the Details page by pressing the number/name of the hive at the top of the page.
-<!-- Only a registered user may view or edit note. The user should also be the owner of the hive in order to do so. The note is a text which should be at least twelve (12) characters long. -->
+
+Edit note page - On this page the owner of the hive may edit any of the notes attached to it. If the user do not provide valid date or the notes' text is shorter than twelve (12) characters the Edit button becomes inactive until the proper information is provided. After a successfull edit the user is forwarded to View notes page.
+
+Delete note page - On this page, after a confirmation, the owner of the hive may delete any of the notes attached to it. After a successfull delete the user is forwarded to View notes page.
 
 Edit page - 
 On this page the owner of the hive may change the information about the hive. The current information about the hive is preloaded and owner may change any of it.
-The name/number may be a string, number or combination of both. The location should be string and must be at least three (3) characters long. The description should be string and must be at least twelve (12) characters long. . The time the hive is owned is chosen from a drop down list with values for one year, two years or more than two years.
+The name/number may be a string, number or combination of both. The location should be string and must be at least three (3) characters long. The description should be string and must be at least twelve (12) characters long. The time the hive is owned is chosen from a drop down list with values for one year, two years or more than two years.
 After a successful edit the owner is redirected to the Details page.
 
 Delete page - 
