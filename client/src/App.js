@@ -20,6 +20,8 @@ import { Edit } from "./components/hives/Edit";
 import { NoSuchLink } from "./components/common/404";
 import { Notes } from "./components/notes/Notes";
 import { AddNotes } from "./components/notes/AddNotes";
+import { EditNote } from "./components/notes/EditNote";
+import { DeleteNote } from "./components/notes/DeleteNote";
 
 function App() {
   return (
@@ -92,6 +94,24 @@ function App() {
               element={
                 <NotLoggedInGuard>
                   <AddNotes />
+                </NotLoggedInGuard>
+              }
+            />
+
+            <Route
+              path="/notes/:id/edit"
+              element={
+                <NotLoggedInGuard>
+                  <EditNote />
+                </NotLoggedInGuard>
+              }
+            />
+
+            <Route
+              path="/notes/:id/remove"
+              element={
+                <NotLoggedInGuard>
+                  <DeleteNote />
                 </NotLoggedInGuard>
               }
             />
