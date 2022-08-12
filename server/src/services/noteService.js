@@ -13,6 +13,12 @@ async function getAllNotesForSpecificHive(hiveId) {
   return specificNotes;
 }
 
+async function getSpecificNote(noteId) {
+  const specificNote = await Note.find({ _id: noteId });
+
+  return specificNote;
+}
+
 async function createNote(data) {
   const { hiveId, date, note } = { ...data };
 
@@ -35,4 +41,21 @@ async function createNote(data) {
   return createdNote;
 }
 
-module.exports = { getAllNotes, getAllNotesForSpecificHive, createNote };
+async function editNote(noteId, data) {
+  const { editedDate, editedNote } = { ...data };
+
+  const edited = await Note.findByIdAndUpdate(noteId, {
+    date: editedDate,
+    note: editedNote,
+  });
+
+  return edited;
+}
+
+module.exports = {
+  getAllNotes,
+  getAllNotesForSpecificHive,
+  createNote,
+  getSpecificNote,
+  editNote,
+};
