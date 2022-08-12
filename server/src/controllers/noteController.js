@@ -38,6 +38,16 @@ router.put("/note/:id", authorization, async (req, res) => {
   }
 });
 
+router.delete("/note/:id", authorization, async (req, res) => {
+  try {
+    const notes = await noteService.removeNote(req.params.id);
+    res.status(200).json(notes);
+  } catch (error) {
+    let message = errorMapper(error);
+    res.status(400).json({ message });
+  }
+});
+
 // router.get("/", authorization, async (req, res) => {
 //   try {
 //     const notes = await noteService.getAllNotes();
