@@ -24,12 +24,32 @@ export function getAllNotesForSpecificHive(hiveId) {
   }
 }
 
-export function getAllNotes() {
+export function getSpecificNote(noteId) {
   try {
-    let notes = fetcher.get(baseUrl);
+    let note = fetcher.get(baseUrl + `/note/${noteId}`);
 
-    return notes;
+    return note;
   } catch (error) {
     console.log(error);
   }
 }
+
+export function editNote(noteId, editedData) {
+  try {
+    let note = fetcher.put(baseUrl + `/note/${noteId}`, editedData);
+
+    return note;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// export function getAllNotes() {
+//   try {
+//     let notes = fetcher.get(baseUrl);
+
+//     return notes;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
