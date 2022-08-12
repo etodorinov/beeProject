@@ -66,11 +66,10 @@
   margin-top: 6px;
   margin-left: 9px;
   text-align: justify;
-
 }
 
 .note-catalogue .note-info span {
-    margin-left: 9px;
+  margin-left: 9px;
   color: white;
   font-weight: bolder;
 }
@@ -94,7 +93,6 @@
   width: 96%;
   height: 100px;
   margin: auto;
-  
 }
 
 .no-notes p {
@@ -103,4 +101,23 @@
   padding-top: 30px;
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn-note-edit,
+.btn-note-delete {
+  border: 5em;
+  cursor: pointer;
+  outline: none;
+  font-size: 13px;
+  -webkit-transform: translate(0);
+  transform: translate(0);
+  background-color: brown;
+  padding: 0.7em 2em;
+  border-radius: 65px;
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
+  -webkit-transition: box-shadow 0.25s;
+  transition: box-shadow 0.25s;
+  color: white;
+  text-decoration: none;
+  margin-left: 9px;
 }
