@@ -44,6 +44,16 @@ export function editNote(noteId, editedData) {
   }
 }
 
+export async function removeNote(noteId) {
+  try {
+    let removedNote = fetcher.remove(baseUrl + `/note/${noteId}`);
+
+    return removedNote;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 // export function getAllNotes() {
 //   try {
 //     let notes = fetcher.get(baseUrl);
