@@ -52,10 +52,17 @@ async function editNote(noteId, data) {
   return edited;
 }
 
+async function removeNote(noteId) {
+  const removedNote = await Note.findByIdAndRemove(noteId);
+
+  return removedNote;
+}
+
 module.exports = {
   getAllNotes,
   getAllNotesForSpecificHive,
   createNote,
   getSpecificNote,
   editNote,
+  removeNote,
 };
