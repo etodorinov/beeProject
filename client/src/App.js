@@ -14,12 +14,12 @@ import { Home } from "./components/Home";
 import { Catalogue } from "./components/hives/Catalogue";
 import { Details } from "./components/hives/Details";
 import { Create } from "./components/hives/Create";
-import { Notes } from "./components/hives/Notes";
-import { AddNotes } from "./components/hives/AddNotes";
 import { Search } from "./components/hives/Search";
 import { DeleteHive } from "./components/hives/DeleteHive";
 import { Edit } from "./components/hives/Edit";
 import { NoSuchLink } from "./components/common/404";
+import { Notes } from "./components/notes/Notes";
+import { AddNotes } from "./components/notes/AddNotes";
 
 function App() {
   return (
