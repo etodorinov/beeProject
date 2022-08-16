@@ -79,7 +79,7 @@ function App() {
               path="/hives/create"
               element={
                 <NotLoggedInGuard>
-                  RouteGuard <Create />
+                  <Create />
                 </NotLoggedInGuard>
               }
             />
