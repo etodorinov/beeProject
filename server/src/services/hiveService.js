@@ -47,8 +47,13 @@ async function remove(hiveId) {
 
 async function getAllByLocation(search) {
   const town = Object.values(search)[0];
+  
+  // const allByLocation = await (await Hive.find({ location: town }).populate('_ownerId'))
+  let allByLocation = await Hive.find().populate('_ownerId');
 
-  const allByLocation = await Hive.find({ location: town }).populate('_ownerId');
+  allByLocation = allByLocation.filter(
+    (x) => x.location.toLowerCase() === town.toLowerCase()
+  );
 
   return allByLocation;
 }
