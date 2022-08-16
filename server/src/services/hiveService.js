@@ -1,3 +1,5 @@
+const mongoose = require("mongoose");
+
 const Hive = require("../models/HiveModel");
 const User = require("../models/UserModel");
 const Note = require("../models/NoteModel");
@@ -47,15 +49,23 @@ async function remove(hiveId) {
 
 async function getAllByLocation(search) {
   const town = Object.values(search)[0];
-  
+
   // const allByLocation = await (await Hive.find({ location: town }).populate('_ownerId'))
-  let allByLocation = await Hive.find().populate('_ownerId');
+  let allByLocation = await Hive.find().populate("_ownerId");
 
   allByLocation = allByLocation.filter(
     (x) => x.location.toLowerCase() === town.toLowerCase()
   );
 
   return allByLocation;
+}
+
+async function getAllByUser(userId) {
+  const allByUser = await Hive.find({
+    _ownerId: mongoose.Types.ObjectId(userId),
+  }).populate("_ownerId");
+
+  return allByUser;
 }
 
 module.exports = {
@@ -65,4 +75,5 @@ module.exports = {
   edit,
   remove,
   getAllByLocation,
+  getAllByUser,
 };
