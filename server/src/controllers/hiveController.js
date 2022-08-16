@@ -44,8 +44,8 @@ router.post("/search", async (req, res) => {
       throw new Error(inputErrors);
     }
 
-    const allByLocation = await hiveService.getAllByLocation(req.body);
-    res.status(200).json(allByLocation);
+    const allByCondition = await hiveService.getAllByCondition(req.body);
+    res.status(200).json(allByCondition);
   } catch (error) {
     let message = errorMapper(error);
     res.status(400).json({ message });
