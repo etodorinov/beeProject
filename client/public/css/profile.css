@@ -1,0 +1,19 @@
+.profile {
+  margin-top: 100px;
+}
+
+.profile h4 {
+  margin-top: 0px;
+  color: rgb(255, 200, 0);
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.profile h4 span {
+  color: white;
+}
+
+.hive-catalogue {
+    margin-top: 180px;
+}
