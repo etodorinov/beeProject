@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Hive } from "./Hive";
 
-import { getAllByLocation } from "../../services/itemsServices";
+import { getAllByCondition } from "../../services/itemsServices";
 
 export const Search = () => {
   const [hives, setHives] = useState();
@@ -13,11 +13,12 @@ export const Search = () => {
   function searchHandler(e) {
     e.preventDefault();
 
-    let data = new FormData(e.target);
+    const data = new FormData(e.target);
 
-    let search = data.get("search");
+    const search = data.get("search");
+    const searchCriteria = data.get("condition")
 
-    getAllByLocation(search)
+    getAllByCondition(search, searchCriteria)
       .then((response) => response.json())
       .then((result) => setHives(result));
   }
@@ -46,22 +47,34 @@ export const Search = () => {
         </h1>
         <div className="test">
           <form className="search-form" method="POST" onSubmit={searchHandler}>
-            <input
-              type="text"
-              name="search"
-              placeholder="Type location here..."
-              value={value.search}
-              onChange={changeHandler}
-            ></input>
-            <button
-              type="submit"
-              className={
-                activation() ? "btn-search-active" : "btn-search-inactive"
-              }
-              disabled={activation() ? "" : "disabled"}
-            >
-              {activation() ? "Search active" : `Search not active`}
-            </button>
+            <div className="search-form-inner">
+              <input
+                type="text"
+                name="search"
+                placeholder="Type location here..."
+                value={value.search}
+                onChange={changeHandler}
+              ></input>
+            </div>
+            <div className="search-form-inner">
+              <select name="condition">
+                <option value="number">Number/Color</option>
+                <option value="location">Location</option>
+                <option value="description">Description</option>
+                <option value="owner">Owner</option>
+              </select>
+            </div>
+            <div className="search-form-inner">
+              <button
+                type="submit"
+                className={
+                  activation() ? "btn-search-active" : "btn-search-inactive"
+                }
+                disabled={activation() ? "" : "disabled"}
+              >
+                {activation() ? "Search active" : `Search not active`}
+              </button>
+            </div>
           </form>
         </div>
         {(available && (
