@@ -47,17 +47,36 @@ async function remove(hiveId) {
   return removed;
 }
 
-async function getAllByLocation(search) {
-  const town = Object.values(search)[0];
+async function getAllByCondition(searchData) {
+  let allByCondition = await Hive.find().populate("_ownerId");
 
-  // const allByLocation = await (await Hive.find({ location: town }).populate('_ownerId'))
-  let allByLocation = await Hive.find().populate("_ownerId");
+  if (searchData.searchCriteria === "number") {
+    allByCondition = allByCondition.filter((x) =>
+      x.number.toLowerCase().includes(searchData.search.toLowerCase())
+    );
+  }
 
-  allByLocation = allByLocation.filter(
-    (x) => x.location.toLowerCase() === town.toLowerCase()
-  );
+  if (searchData.searchCriteria === "location") {
+    allByCondition = allByCondition.filter((x) =>
+      x.location.toLowerCase().includes(searchData.search.toLowerCase())
+    );
+  }
 
-  return allByLocation;
+  if (searchData.searchCriteria === "description") {
+    allByCondition = allByCondition.filter((x) =>
+      x.description.toLowerCase().includes(searchData.search.toLowerCase())
+    );
+  }
+
+  if (searchData.searchCriteria === "owner") {
+    allByCondition = allByCondition.filter((x) =>
+      x._ownerId.username
+        .toLowerCase()
+        .includes(searchData.search.toLowerCase())
+    );
+  }
+
+  return allByCondition;
 }
 
 async function getAllByUser(userId) {
@@ -74,6 +93,6 @@ module.exports = {
   create,
   edit,
   remove,
-  getAllByLocation,
+  getAllByCondition,
   getAllByUser,
 };
