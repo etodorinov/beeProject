@@ -21,6 +21,8 @@ Logout page -
 Every logged in user may log out at any time.
 Successfully logged out user will be redirected to the Home page.
 
+Profile page – every logged in user may visit its Profile page. On the Profile page the username, user email and a catalogue of user’s hives is visible. If the user has not created any hives yet an appropriate message is displayed.
+
 Create hive page - 
 Every registered user may create hive. The number of hives is not limited.
 In order to create hive the user should provide information about hive's name/number, location, short description and the period of time the hive has been owned. The time the hive is owned is chosen from a drop down list with values for one year, two years or more than two years. The name/number may be a string, number or combination of both. The location should be string and must be at least three (3) characters long. The description should be string and must be at least twelve (12) characters long.
