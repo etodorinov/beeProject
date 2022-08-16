@@ -26,7 +26,7 @@ export const Search = () => {
   function activation() {
     let mayActivate = false;
 
-    if (value.search.length >= 3) {
+    if (value.search.length > 0) {
       mayActivate = true;
     }
 
