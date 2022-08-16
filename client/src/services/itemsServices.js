@@ -24,11 +24,14 @@ export function getAll() {
   }
 }
 
-export function getAllByLocation(location) {
+export async function getAllByCondition(search, searchCriteria) {
   try {
-    let hivesByLocation = fetcher.post(baseUrl + `/search`, { location });
+    let hivesByCondition = await fetcher.post(baseUrl + `/search`, {
+      search,
+      searchCriteria,
+    });
 
-    return hivesByLocation;
+    return hivesByCondition;
   } catch (error) {
     console.log(error);
   }
