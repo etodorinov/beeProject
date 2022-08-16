@@ -24,11 +24,21 @@ export function getAll() {
   }
 }
 
-export function getAllByLocation(search) {
+export function getAllByLocation(location) {
   try {
-    let hivesByLocation = fetcher.post(baseUrl + `/search`, { search });
+    let hivesByLocation = fetcher.post(baseUrl + `/search`, { location });
 
     return hivesByLocation;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export function getAllByUser(userId) {
+  try {
+    let hivesByUser = fetcher.get(baseUrl + `/userId/${userId}`);
+
+    return hivesByUser;
   } catch (error) {
     console.log(error);
   }
