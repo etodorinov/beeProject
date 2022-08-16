@@ -25,6 +25,16 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.get("/userId/:id", async (req, res) => {
+  try {
+    const userHives = await hiveService.getAllByUser(req.params.id);
+    res.status(200).json(userHives);
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({ message: "error.message" });
+  }
+});
+
 router.post("/search", async (req, res) => {
   let inputErrors = inputErrorChecker(req.body);
 
