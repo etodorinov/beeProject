@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
 import { useAuthContext } from "../hooks/useAuthContext";
 
@@ -9,5 +9,5 @@ export const LoggedInGuard = ({ children }) => {
     return <Navigate to="/" replace />;
   }
   
-  return children;
+  return children ? children : <Outlet /> ;
 };
