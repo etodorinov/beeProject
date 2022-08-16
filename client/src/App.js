@@ -6,6 +6,7 @@ import { HiveProvider } from "./components/contexts/HiveContext";
 import { Register } from "./components/user/Register";
 import { Login } from "./components/user/Login";
 import { Logout } from "./components/user/Logout";
+import { Profile } from "./components/user/Profile";
 import { Navigation } from "./components/common/Navigation";
 import { Footer } from "./components/common/Footer";
 import { NotLoggedInGuard } from "./components/common/NotLoggedInGuard";
@@ -64,6 +65,16 @@ function App() {
                 </NotLoggedInGuard>
               }
             />
+
+            <Route
+              path="/users/profile"
+              element={
+                <NotLoggedInGuard>
+                  <Profile />
+                </NotLoggedInGuard>
+              }
+            />
+
             <Route
               path="/hives/create"
               element={
@@ -72,6 +83,7 @@ function App() {
                 </NotLoggedInGuard>
               }
             />
+
             <Route
               path="/hives/edit/:id"
               element={
@@ -89,6 +101,7 @@ function App() {
                 </NotLoggedInGuard>
               }
             />
+
             <Route
               path="/notes/:id/add"
               element={
