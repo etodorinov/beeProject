@@ -41,6 +41,16 @@ export const Navigation = () => {
               </li>
               <li>
                 <NavLink
+                  to="/users/profile"
+                  className={({ isActive }) =>
+                    isActive ? "active" : undefined
+                  }
+                >
+                  Profile
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/users/logout"
                   className={({ isActive }) =>
                     isActive ? "active" : undefined
