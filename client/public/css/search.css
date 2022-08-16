@@ -15,8 +15,7 @@
   color: white;
 }
 
-.search-form input,
-select {
+.search-form input {
   display: inline-block;
   width: 470px;
   color: white;
@@ -39,6 +38,8 @@ select {
 }
 
 .btn-search-inactive {
+  display: inline-flex;
+  align-items: center;
   cursor: pointer;
   height: 40px;
   width: 120px;
@@ -47,6 +48,9 @@ select {
   border-radius: 20px;
   background: red;
   padding-top: 6px;
+  font-weight: bold;
+  /* border: 1px solid black */
+  border: 3px solid rgb(255, 200, 0);
 }
 
 .search-list {
@@ -169,4 +173,25 @@ select {
 
 .search-form input::-ms-input-placeholder {
   color: white;
+}
+
+.search-form select {
+  height: 40px;
+  width: 132px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  background: black;
+  cursor: pointer;
+  border: 3px solid rgb(255, 200, 0);
+  border-radius: 30px;
+  
+}
+
+.search-form select option {
+  text-align: center;
+}
+
+.search-form-inner {
+  display: inline-block;
+  margin-left: 18px;
 }
