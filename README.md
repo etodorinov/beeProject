@@ -57,8 +57,7 @@ If a hive is deleted all the notes for it are also deleted.
 After a successful delete operation the owner is forwarded to the All hives page.
 
 Search page - 
-Any visitor or registered user may search for hives based on the hive’s location. If any result is available a list with the result is rendered. If no result is available an appropriate message is displayed.
-As the location should be at least three (3) characters long the search button is active only if three (3) characters are written in the input field. While the search button is not active it is colored in red and text “Search not active” is displayed. Once it is activated it becomes transparent and the text “Search active” is displayed.
+Any visitor or logged in user may search for hives based on part of the hive’s number/colour, hive’s location, hive’s description or hive’s owner or the whole word. If any result is available a list with the result is rendered. If no result is available an appropriate message is displayed. Until at least one character is written in the input field the search button is inactive. While the search button is not active it is coloured in red and text “Search not active” is displayed. Once it is activated it becomes transparent and the text “Search active” is displayed.
 
 404 page - 
 The page is displayed if any problem occurs during the use of the application. From it the user may go back to home page and try again.
