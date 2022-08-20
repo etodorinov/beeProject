@@ -5,6 +5,8 @@ import { HiveContext } from "../contexts/HiveContext";
 
 import { createNoteInDatabase } from "../../services/notesServices";
 
+import { LoadingSpinner } from "../common/Spinner";
+
 export const AddNotes = () => {
   const [values, setValues] = useState({
     date: "",
@@ -13,6 +15,8 @@ export const AddNotes = () => {
   const [errors, setErrors] = useState({});
   const { currentHive } = useContext(HiveContext);
   const navigate = useNavigate();
+
+  let [isLoading, setIsLoading] = useState(false);
 
   function changeHandler(e) {
     setValues((state) => ({ ...state, [e.target.name]: e.target.value }));
@@ -45,6 +49,8 @@ export const AddNotes = () => {
   const createNote = (e) => {
     e.preventDefault();
 
+    setIsLoading(true);
+
     const data = new FormData(e.target);
     const date = data.get("date");
     const note = data.get("note");
@@ -67,68 +73,74 @@ export const AddNotes = () => {
         } else {
           navigate("*");
         }
+
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
         navigate("*");
+
+        setIsLoading(false);
       });
   };
 
   return (
-    <main>
-      <section className="add-container">
-        <div className="add-container-info">
-          <h1>Add note</h1>
-          <form method="POST" onSubmit={createNote}>
-            <h1 id="name">
-              <Link to={`/hives/details/${currentHive?._id}`}>
-                <span>{currentHive?.number}</span>
-              </Link>
-            </h1>
-            <h3 id="location">Location: {currentHive?.location}</h3>
-            <p id="years-owned">
-              <span>Years owned: {currentHive?.condition}</span>
-            </p>
-            <p id="description">Description: {currentHive?.description}</p>
-            <p id="owner">Owner: {currentHive?._ownerId.username}</p>
-            <label>Date:</label>
-            <input
-              type="date"
-              id="date"
-              name="date"
-              value={values.date}
-              onChange={changeHandler}
-              onBlur={(e) => dateLength(e, 10)}
-            />
-            {errors.date && (
-              <span className="error">
-                Please choose a valid date for the note!
-              </span>
-            )}
-            <label>Note:</label>
-            <textarea
-              name="note"
-              id="note"
-              placeholder="Write your note here..."
-              value={values.note}
-              onChange={changeHandler}
-              onBlur={(e) => minLength(e, 12)}
-            ></textarea>
-            {errors.note && (
-              <span className="error">
-                The note should be at least twelve (12) characters long.
-              </span>
-            )}
-            <input
-              type="submit"
-              id="btn"
-              value="Add notes"
-              className={activation() ? "active" : "not-active"}
-              disabled={activation() ? false : true}
-            ></input>
-          </form>
-        </div>
-      </section>
-    </main>
+    (isLoading && <LoadingSpinner />) || (
+      <main>
+        <section className="add-container">
+          <div className="add-container-info">
+            <h1>Add note</h1>
+            <form method="POST" onSubmit={createNote}>
+              <h1 id="name">
+                <Link to={`/hives/details/${currentHive?._id}`}>
+                  <span>{currentHive?.number}</span>
+                </Link>
+              </h1>
+              <h3 id="location">Location: {currentHive?.location}</h3>
+              <p id="years-owned">
+                <span>Years owned: {currentHive?.condition}</span>
+              </p>
+              <p id="description">Description: {currentHive?.description}</p>
+              <p id="owner">Owner: {currentHive?._ownerId.username}</p>
+              <label>Date:</label>
+              <input
+                type="date"
+                id="date"
+                name="date"
+                value={values.date}
+                onChange={changeHandler}
+                onBlur={(e) => dateLength(e, 10)}
+              />
+              {errors.date && (
+                <span className="error">
+                  Please choose a valid date for the note!
+                </span>
+              )}
+              <label>Note:</label>
+              <textarea
+                name="note"
+                id="note"
+                placeholder="Write your note here..."
+                value={values.note}
+                onChange={changeHandler}
+                onBlur={(e) => minLength(e, 12)}
+              ></textarea>
+              {errors.note && (
+                <span className="error">
+                  The note should be at least twelve (12) characters long.
+                </span>
+              )}
+              <input
+                type="submit"
+                id="btn"
+                value="Add notes"
+                className={activation() ? "active" : "not-active"}
+                disabled={activation() ? false : true}
+              ></input>
+            </form>
+          </div>
+        </section>
+      </main>
+    )
   );
 };
