@@ -26,7 +26,7 @@ export const Profile = () => {
       </h4>
       {(available && (
         <main>
-          <section className="hive-catalogue">
+          <section className="profile-hive-catalogue">
             {/* <h1>
               <span>Hives</span>
             </h1> */}
