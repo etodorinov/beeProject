@@ -14,6 +14,86 @@
   color: white;
 }
 
-.hive-catalogue {
+.profile-hive-catalogue {
     margin-top: 180px;
+}
+
+.profile-hive-catalogue h1 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+.profile-hive-catalogue h1 span {
+  color: rgb(255, 200, 0);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.profile-hive-catalogue .hive {
+  display: inline-block;
+  width: 400px;
+  height: 200px;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  border: 3px solid rgb(255, 200, 0);
+  border-radius: 30px;
+  /* background-color: rgba(255, 200, 0, 0.18); */
+  background-color: rgba(0, 0, 0, 0.54);
+}
+
+.profile-hive-catalogue .hive-img img {
+  float: left;
+  border: 2px solid rgba(169, 152, 198, 0.781);
+  border-radius: 50%;
+  width: 140px;
+  height: 120px;
+  margin: 20px;
+}
+
+.profile-hive-catalogue .hive-info {
+  margin-bottom: 20px;
+}
+
+.profile-hive-catalogue .hive-info h1 {
+  font-size: 24px;
+  margin-top: 10px;
+  color: white;
+}
+
+.profile-hive-catalogue .hive-info p {
+  color: white;
+  margin-top: 5px;
+}
+
+.profile-hive-catalogue .hive-info span {
+  color: white;
+  font-weight: bolder;
+}
+
+.profile-hive-catalogue .hive .btn-details {
+  border: 5em;
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
+  -webkit-transform: translate(0);
+  transform: translate(0);
+  /* background-image: linear-gradient(45deg, #4568dc, #b06ab3); */
+  background-color: brown;
+  padding: 0.7em 2em;
+  border-radius: 65px;
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
+  -webkit-transition: box-shadow 0.25s;
+  transition: box-shadow 0.25s;
+  color: white;
+  width: 100px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.profile-hive-catalogue .hive .btn-details:hover {
+  box-shadow: 0 12px 24px rgba(128, 128, 128, 0.1);
 }
