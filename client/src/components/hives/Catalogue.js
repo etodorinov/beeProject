@@ -11,10 +11,9 @@ export const Catalogue = () => {
 
   useEffect(() => {
     getAll()
-      .then((response) => {
-        response.json();
-      })
+      .then((response) => response.json())
       .then((result) => {
+        console.log(result);
         setHives(result);
         setIsLoading(false);
       })
@@ -24,11 +23,11 @@ export const Catalogue = () => {
       });
   }, []);
 
-  hives = hives.sort((a, b) => {
+  hives = hives?.sort((a, b) => {
     return a._ownerId?.username.localeCompare(b._ownerId?.username);
   });
 
-  const available = hives.length !== 0 ? true : false;
+  const available = hives?.length !== 0 ? true : false;
 
   return (
     (isLoading && <LoadingSpinner />) ||
@@ -39,7 +38,7 @@ export const Catalogue = () => {
             <span>Hives</span>
           </h1>
           <div className="hive-list">
-            {hives.map((x) => (
+            {hives?.map((x) => (
               <Hive key={x._id} hive={x} />
             ))}
           </div>
