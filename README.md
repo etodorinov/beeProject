@@ -2,7 +2,7 @@
 
 The goal of the application is to create a database of hives with the corresponding notes for each hive. 
 
-The front-end is hosted on Firebase. The back-end is hosted on Heroku. MongoDB is used as database to store the information. The application may be reached on the following URL - https://react-beeproject-client.web.app/ Since the project is used rarely the initial load of the functionalities may take little longer as it takes some time to "wake up" the servers.
+The front-end is hosted on Firebase. The back-end is hosted on Heroku. MongoDB is used as database to store the information. The application may be reached on the following URL - Bee Project (https://react-beeproject-client.web.app/). Since the project is used rarely the initial load of the functionalities may take little longer as it takes some time to "wake up" the servers.
 
 Home page - 
 A citate in connection with bees is displayed.
