@@ -23,6 +23,8 @@ import { Notes } from "./components/notes/Notes";
 import { AddNotes } from "./components/notes/AddNotes";
 import { EditNote } from "./components/notes/EditNote";
 import { DeleteNote } from "./components/notes/DeleteNote";
+import { Requirements } from "./components/common/Requirements";
+import { Documentation } from "./components/common/Documentation";
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
             <Route path="/hives/search" element={<Search />} />
             <Route path="/notes/:id/view" element={<Notes />} />
             <Route path="*" element={<NoSuchLink />} />
+            <Route path="/requirements" element={<Requirements />} />
+            <Route path="/documentation" element={<Documentation />} />
 
             <Route
               path="/users/login"
