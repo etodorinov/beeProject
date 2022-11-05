@@ -1,9 +1,9 @@
 const databaseInitialization = require("./initializations/databaseInitialization");
-const expressInitialization = require("./initializations/expressInitialization");
+const server = require("./initializations/server");
 
 async function start() {
   await databaseInitialization();
-  expressInitialization();
+  server();
 }
 
 start();
