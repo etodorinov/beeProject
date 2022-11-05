@@ -26,7 +26,7 @@ nav ul li {
 nav ul li a {
   color: rgb(255, 200, 0);
   text-decoration: none;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   font-weight: bold;
 }
 
@@ -39,33 +39,65 @@ main {
   overflow: hidden;
 }
 
-article {
+/* article {
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-
   border: 3px solid rgb(255, 200, 0);
   border-radius: 20px;
-  /* background-color: black; */
   background-color: rgba(0, 0, 0, 0.54);
   text-align: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
   font-style: italic;
   color: white;
   font-size: 24px;
   padding: 9px 9px 9px 9px;
-}
+} */
 
 footer {
   color: rgb(255, 200, 0);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   font-weight: bold;
   position: fixed;
   bottom: 13px;
   width: 100%;
   text-align: center;
+}
+
+.explanation {
+  color: white;
+  margin: 0 auto;
+  width: 60%;
+  background-color: rgba(0, 0, 0, 0.54);
+  padding: 0.1rem;
+  border: 3px solid rgb(255, 200, 0);
+  border-radius: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.content-home {
+  text-align: center;
+  width: 96%;
+  margin: 0 auto;
+}
+
+.content-home p {
+  text-align: justify;
+  padding: 0.1rem;
+}
+
+.content-home a {
+  color: rgb(255, 200, 0);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.content-home .outside {
+  color: greenyellow;
 }
