@@ -95,6 +95,22 @@ export const Navigation = () => {
               Search
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/requirements"
+              className={({ isActive }) => (isActive ? "active" : undefined)}
+            >
+              Requirements
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/documentation"
+              className={({ isActive }) => (isActive ? "active" : undefined)}
+            >
+              Documentation
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>
